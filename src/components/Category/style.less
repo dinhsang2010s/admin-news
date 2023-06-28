@@ -1,0 +1,44 @@
+.category {
+  .title {
+    color: var(--text-color);
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 0;
+    height: 50px;
+  }
+  .nav-category {
+    padding: 0 20px;
+    height: 40px;
+    display: flex;
+    justify-content: end;
+    .add-category {
+      border-radius: 2px;
+      height: 35px;
+      height: 38px;
+      margin-right: 20px;
+    }
+    .search-category {
+      height: 35px;
+      background: #2a3038;
+      border: 0;
+      width: 350px;
+      border-radius: 2px;
+      &:hover {
+        border: 1px solid var(--primary-color);
+      }
+      .ant-input {
+        background: #2a3038;
+        color: #fff;
+        &::placeholder {
+          color: var(--text-color);
+        }
+      }
+      .ant-input-suffix {
+        color: var(--text-color);
+      }
+    }
+  }
+  .table-category {
+    padding: 15px 20px;
+  }
+}

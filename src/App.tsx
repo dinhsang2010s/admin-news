@@ -1,35 +1,35 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
+import { useContext, useState } from "react";
+import { Button, ConfigProvider, Layout } from "antd";
+import "./App.less";
+import { Main } from "./layouts";
+import { ThemeContext, ThemeContextProvider } from "./themes";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const { theme } = useContext(ThemeContext);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <i className="fa-solid fa-house"></i>
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <div>
-        <i className="fa-solid fa-house"></i>
-      </div>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <ThemeContextProvider>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: "#4254ba",
+            borderRadius: 4,
+          },
+          components: {
+            Table: {
+              colorBorderSecondary: "#dee2e6",
+              colorFillAlter: "#ffffff",
+              colorFillContent: "#ffffff",
+              colorFillSecondary: "#49526b",
+              colorBgContainer: "#ffffff",
+            },
+          },
+        }}
+      >
+        <div className="App">
+          <Main />
+        </div>
+      </ConfigProvider>
+    </ThemeContextProvider>
   );
 }
 
