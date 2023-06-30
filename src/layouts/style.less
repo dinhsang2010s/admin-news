@@ -10,12 +10,11 @@
     height: 72px;
     box-shadow: var(--box-shadow);
     .logo {
-      width: 160px;
       height: 100%;
-      padding: 20px 25px;
+      justify-content: center;
       //box-shadow: 2px 0 6px 0 var(--box-shadow-color);
       img {
-        width: 100%;
+        width: 70%;
       }
     }
     .btn-collapsed {
@@ -32,37 +31,37 @@
       }
     }
   }
-  .container-component {
+  .container {
     background: var(--bg-color);
-  }
-  .sider {
-    margin: 10px 10px 10px 20px;
-    background: var(--bg-color);
-    .menu {
-      background: var(--bg-component-color);
-      color: var(--text-color);
-      font-weight: 400;
-      border-radius: 4px;
-      height: 100%;
-      box-shadow: var(--box-shadow);
-      .ant-menu-item {
-        font-weight: 500;
-        &:hover {
+    padding: 10px 15px 15px;
+    .sider {
+      background: var(--bg-color);
+      margin-right: 10px;
+      .menu {
+        background: var(--bg-component-color);
+        color: var(--text-color);
+        font-weight: 400;
+        //border-radius: 4px;
+        height: 100%;
+        box-shadow: var(--box-shadow);
+        .ant-menu-item {
+          font-weight: 500;
+          &:hover {
+            background: var(--bg-color);
+            color: var(--primary-color);
+          }
+        }
+        .ant-menu-item-selected {
           background: var(--bg-color);
           color: var(--primary-color);
         }
       }
-      .ant-menu-item-selected {
-        background: var(--bg-color);
-        color: var(--primary-color);
-      }
     }
-  }
-  .content {
-    margin: 10px 20px 10px 5px;
-    background: var(--bg-component-color);
-    border-radius: 4px;
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
+    .content {
+      background: var(--bg-component-color);
+      box-shadow: var(--box-shadow);
+      //border-radius: 4px;
+      overflow: hidden;
+    }
   }
 }

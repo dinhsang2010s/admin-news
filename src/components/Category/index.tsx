@@ -1,8 +1,7 @@
-import { Button, Table } from "antd";
+import { Button } from "antd";
 import "./style.less";
 import Search from "../../design-components/Search";
-import { useRef } from "react";
-import useComputeHeight from "../../hooks/useHeight";
+import Table from "../../design-components/Table";
 import { ColumnsType } from "antd/es/table";
 
 interface DataType {
@@ -57,12 +56,11 @@ for (let i = 1; i <= 15; i++) {
 }
 
 const Category = () => {
-  const refHeight = useRef(null);
-  const height = useComputeHeight(refHeight);
   return (
     <div className="category">
       <h1 className="title"> Category</h1>
       <div className="nav-category">
+        <Search />
         <Button
           className="add-category"
           type="primary"
@@ -70,23 +68,9 @@ const Category = () => {
         >
           Create New Category
         </Button>
-        <Search />
       </div>
       <div className="table-category">
-        <Table
-          ref={refHeight}
-          className="table-preview"
-          pagination={{
-            defaultPageSize: 20,
-            showSizeChanger: true,
-            pageSizeOptions: ["20", "50", "100"],
-          }}
-          columns={columns}
-          dataSource={data}
-          scroll={{
-            y: height - 130,
-          }}
-        />
+        <Table dataSource={data} columns={columns} />
       </div>
     </div>
   );

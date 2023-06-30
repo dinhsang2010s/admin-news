@@ -11,7 +11,7 @@ const Search = ({
   return (
     <Input
       style={{
-        height: height ?? 38,
+        height: height ?? 40,
         width: width ?? 220,
       }}
       prefix={<i className="fa-solid fa-magnifying-glass"></i>}

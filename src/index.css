@@ -1,6 +1,4 @@
 :root {
-  font-family: "Roboto", sans-serif;
-
   --primary-color: #4254ba;
   --bg-component-color: #ffffff;
   --bg-color: #eeeef1;
@@ -11,7 +9,7 @@
   --box-shadow-color: rgba(27, 23, 30, 0.1);
   --border-line-color: #dee2e6;
   --border-color: #2c2e33;
-  --border: 1px solid #000;
+  --border: 1px solid #f0f0f0;
 }
 
 html,

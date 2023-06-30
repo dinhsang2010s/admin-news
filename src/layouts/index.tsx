@@ -1,5 +1,5 @@
 import { Button, Layout, Menu } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 const { Header, Sider, Content, Footer } = Layout;
 import "./style.less";
@@ -26,21 +26,39 @@ const menu = [
 
 export const Main = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [wLogo, setWLogo] = useState(250);
+  const onChangeCollapsed = () => setCollapsed(!collapsed);
+  useEffect(() => {
+    window
+      .matchMedia("(max-width:900px)")
+      .addEventListener("change", onChangeCollapsed);
+  }, [window.matchMedia("(min-width: 900px)").matches]);
+
+  useEffect(() => {
+    if (collapsed) setWLogo(80);
+    else setWLogo(250);
+  }, [collapsed]);
+
   return (
     <Layout className="main">
       <Header className="header flex-center">
-        <div className="logo flex-center">
+        <div
+          className="logo flex-center"
+          style={{
+            width: wLogo,
+          }}
+        >
           <img src="../src/assets/images/logo-dark.png" alt="" />
         </div>
         <Button
           className="btn-collapsed"
           type="text"
           icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-          onClick={() => setCollapsed(!collapsed)}
+          onClick={onChangeCollapsed}
         />
         <Search />
       </Header>
-      <Layout className="container-component">
+      <Layout className="container">
         <Sider
           className="sider"
           trigger={null}
@@ -53,7 +71,7 @@ export const Main = () => {
             mode="inline"
             theme="dark"
             defaultSelectedKeys={["/"]}
-            selectedKeys={[location.pathname.split("/")?.[1] ?? ""]}
+            //selectedKeys={[location.pathname.split("/")[1] ?? ""]}
           >
             {menu.map((m) => (
               <Menu.Item className="menu-item" key={m.key} icon={m.icon}>
